@@ -1,7 +1,10 @@
 const express = require('express');
 
 const app = express();
-const port = 3000;
+//const port = 3000;
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+const port = process.env.PORT || 3000
 
 // Set public folder as root
 app.use(express.static('public'));

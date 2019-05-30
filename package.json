@@ -4,7 +4,7 @@
   "description": "chat-app",
   "main": "server.js",
   "scripts": {
-     "start": "node server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "hello"
@@ -16,6 +16,7 @@
     "handlebars": "^4.1.2",
     "jquery": "^3.4.1",
     "semantic-ui-css": "^2.4.1",
-    "simplewebrtc": "^3.0.2"
+    "simplewebrtc": "^3.0.2",
+    "socket.io": "^2.2.0"
   }
 }
