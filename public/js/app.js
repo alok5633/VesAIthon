@@ -38,6 +38,7 @@ window.addEventListener('load', () => {
     debug: false,
     detectSpeakingEvents: true,
     autoAdjustMic: false,
+	//remoteVideoE1.getAudioTracks()[0],
   });
 
   // We got access to local camera
@@ -126,6 +127,10 @@ window.addEventListener('load', () => {
     showChatRoom(roomName);
     postMessage(`${username} joined chatroom`);
   };
+  
+  const leaveRoom = (roomName) => {
+	 this.connection.emit('leave');
+  };
 
   // Receive message from remote user
   webrtc.connection.on('message', (data) => {
@@ -145,9 +150,12 @@ window.addEventListener('load', () => {
     const roomName = $('#roomName').val().toLowerCase();
     if (event.target.id === 'create-btn') {
       createRoom(roomName);
-    } else {
+    } else if(event.target.id === 'join-btn'){
       joinRoom(roomName);
     }
+	else if(event.target.id === 'disconnect-btn'){
+		leaveRoom(roomName);
+	}
     return false;
   });
 });
